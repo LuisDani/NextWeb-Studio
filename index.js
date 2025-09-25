@@ -11,8 +11,17 @@ document.addEventListener("scroll", () => {
 (function(){
       emailjs.init("LXXMr6wLMBLpWsB2f");
    })();
+
+function closeMobileMenu() {
+  document.querySelector('.container-header nav').classList.remove('active');
+}
+
 document.querySelector('.menu-toggle').addEventListener('click', () => {
   document.querySelector('.container-header nav').classList.toggle('active');
+});
+
+document.querySelectorAll('nav a').forEach(link => {
+  link.addEventListener('click', closeMobileMenu);
 });
 
 document.getElementById('contact-form').addEventListener('submit', function(event) {
