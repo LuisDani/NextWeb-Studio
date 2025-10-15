@@ -34,3 +34,17 @@ document.getElementById('contact-form').addEventListener('submit', function(even
             alert(' Error al enviar: ' + JSON.stringify(error));
         });
 });
+
+
+document.addEventListener("scroll", () => {
+  const scrollIndicator = document.querySelector(".scroll-indicator");
+  const header = document.querySelector("header");
+
+  if (window.scrollY > 50) {
+    scrollIndicator.classList.add("hidden");
+    header.classList.add("scrolled"); // <-- agregado
+  } else {
+    scrollIndicator.classList.remove("hidden");
+    header.classList.remove("scrolled"); // <-- agregado
+  }
+});

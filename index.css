@@ -28,8 +28,15 @@ header{
     top: 0;
     left: 0;
     right: 0;
-    background-color: #ffffff;
+    background-color: transparent;
     z-index: 10;
+    transition: background-color 220ms ease, backdrop-filter 220ms ease, box-shadow 220ms ease;
+}
+
+header.scrolled {
+    background-color: rgba(0, 0, 0, 0.6); 
+    backdrop-filter: blur(6px); 
+    box-shadow: 0 6px 18px rgba(0,0,0,0.35);
 }
 
 .container-header{
@@ -97,6 +104,7 @@ header{
     display: flex;
     flex-direction: column;
     row-gap: 0.30rem;
+    color: #fff;
 }
 
 .studio{
@@ -116,18 +124,39 @@ ul{
 nav ul li .options{
     color: #111827;
     font-weight: 700;
-    transition: color 0.3s ease, transform 0.3s ease;
+    transition: color 0.3s ease, transform 0.5s ease;
     padding: 0.5rem 0;
     display: inline-block;
+    color: #fff;
+    position: relative;
+}
+
+nav ul li .options::after{
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0.25rem; /* distancia desde la base del texto */
+    width: 100%;       /* ancho final de la línea (ajusta si quieres más/menos) */
+    height: 2px;
+    background: var(--color-principal-azul);
+    transform: translateX(-50%) scaleX(0);
+    transform-origin: center;
+    transition: transform 0.35s cubic-bezier(.2,.8,.2,1);
+    border-radius: 2px;
+    pointer-events: none;
+}
+
+nav ul li .options:hover::after{
+    transform: translateY(-50%);
 }
 
 nav ul li .options:hover{
-    color: #111;
-    transform: translateY(-2px);
+    color: var(--color-secundario-azul);
+    transform: translateY(-0.5px);
 }
 
+
 .active{
-    background-color: #3B82F6;
     color: #fff;
     padding: 0.90rem 1.5rem;
     border-radius: 0.8rem;
@@ -135,7 +164,13 @@ nav ul li .options:hover{
     border: none;
     cursor: pointer;
     display: inline-block;
-    transition: transform 0.3s ease;
+    transition: transform 0.5s ease;
+    font-size: 2rem;
+}
+
+.active:hover{
+    color: var(--color-principal-azul);
+    transform: translateY(-0.5px);
 }
 
 
@@ -552,7 +587,7 @@ nav ul li .options:hover{
     width: 100%;
     height: 20rem;
     object-fit: cover;
-    object-position: center 10%;
+    object-position: center 25%;
     transition: transform 0.5s ease;
 }
 
