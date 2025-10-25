@@ -462,6 +462,10 @@ nav ul li .options:hover{
     border-radius: 1rem;
     transition: all 0.3s ease;
     user-select: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
 }
 
 .card:hover{
@@ -887,6 +891,28 @@ nav ul li .options:hover{
     grid-template-columns: 1fr;
     gap: 2rem;
     margin-bottom: 4rem;
+}
+
+.btn-plan{
+    width: 100%;
+    background-color: var(--color-principal-azul);
+    color: #fff;
+    padding: 0.75rem;
+    border-radius: 10px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    margin-top: 1rem;
+    transition: background-color 0.3s ease;
+    border: none;
+}
+
+.btn-plan:hover {
+    background-color: #fff;
+    color: var(--color-principal-negro);
 }
 
 /* referencias  */
